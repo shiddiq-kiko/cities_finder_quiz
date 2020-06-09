@@ -89,9 +89,6 @@ export default function Map() {
       } else {
         dispatch(setCityPlaced(cityPlaced - 1));
       }
-      if (index === Cities.cities.length) {
-        history.push("/victory");
-      }
     }
   };
 
@@ -103,14 +100,14 @@ export default function Map() {
     );
   }
   if (index === Cities.cities.length) {
-    history.push("/victory");
+    history.push("/success");
   }
 
   return (
     <>
       <div id="map">
         <GoogleMapReact
-          bootstrapURLKeys={{ key: "AIzaSyDfc_uc2FhbeIBNU_ou5ouNnwlrYeD7hdA" }}
+          bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_KEY }}
           options={mapOptionsConfig}
           defaultCenter={{
             lat: 54.526,

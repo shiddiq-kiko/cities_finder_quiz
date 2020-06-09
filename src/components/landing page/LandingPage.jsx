@@ -13,7 +13,12 @@ export default function LandingPage() {
   return (
     <>
       <div className="landing-page">
-        <h2 className="game-title">Cities Finder</h2>
+        <h2
+          style={{ fontFamily: "'Chewy', cursive", fontSize: 50 }}
+          className="game-title"
+        >
+          Cities Finder
+        </h2>
         <Link to="/playboard" className="btn btn-primary">
           Play
         </Link>

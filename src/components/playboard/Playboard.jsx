@@ -4,7 +4,8 @@ import { useHistory } from "react-router-dom";
 import { resetRedux } from "../../store/actionCreator";
 
 import Map from "./Map.jsx";
-// import Missions from '../components/Missions'
+import Navbar from "./Navbar.jsx";
+import Scoreboard from "./Scoreboard";
 
 export default function Main() {
   const dispatch = useDispatch();
@@ -18,11 +19,13 @@ export default function Main() {
   }, []);
 
   if (score <= 0) {
-    history.push("/gameover");
+    history.push("/failed");
   }
 
   return (
     <>
+      <Navbar />
+      <Scoreboard />
       <Map />
     </>
   );
