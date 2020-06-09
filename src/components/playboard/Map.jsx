@@ -57,11 +57,13 @@ export default function Map() {
       );
 
       if (distance <= 50) {
-        Swal.fire(
-          "Correct!",
-          `distance from the actual coordinate: ${distance} km`,
-          "success"
-        );
+        Swal.fire({
+          icon: "success",
+          title: "Correct!",
+          text: `Distance from the target coordinate: ${distance} km`,
+          background:
+            "url(https://media.giphy.com/media/hpEjtJ7gTyuC9BbKvl/giphy.gif)",
+        });
         dispatch(setCorrect(correct + 1));
         dispatch(setScore(distance));
         dispatch(setLoading(false));
@@ -74,13 +76,14 @@ export default function Map() {
         Swal.fire({
           icon: "error",
           title: `Oops, that's not ${cityToFindName}`,
-          text: `distance from the actual coordinate: ${distance} km`,
+          text: `Distance from the target coordinate: ${distance} km`,
+          background: `url(https://media1.tenor.com/images/39842901e9cf82e15e4bd6dad416acc4/tenor.gif?itemid=5694917)`,
         });
       }
     } catch (error) {
       Swal.fire(
         `I'm sorry`,
-        `There's some error while measuring the distance, care to play again?`,
+        `There's some error while measuring the distance`,
         "question"
       );
       dispatch(setLoading(false));
@@ -102,7 +105,6 @@ export default function Map() {
   if (index === Cities.cities.length) {
     history.push("/success");
   }
-
   return (
     <>
       <div id="map">

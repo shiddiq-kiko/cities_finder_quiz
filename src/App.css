@@ -75,6 +75,7 @@
   color: #e2e4f5;
   margin-top: 12px;
   font-size: large;
+  font-family: "Chewy", cursive;
 }
 
 .result {
@@ -86,4 +87,5 @@
   justify-content: center;
   flex-wrap: wrap;
   flex-direction: column;
+  font-family: "Chewy", cursive;
 }

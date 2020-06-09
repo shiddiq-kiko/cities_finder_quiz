@@ -1,15 +1,30 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { resetRedux } from "../../store/actionCreator";
+import { setLoading, resetRedux } from "../../store/actionCreator";
+
+import Loading from "../../helpers/Loading.jsx";
 
 export default function LandingPage() {
   const dispatch = useDispatch();
 
+  const loading = useSelector((state) => state.loading);
+
   useEffect(() => {
     dispatch(resetRedux());
+    dispatch(setLoading(true));
+    setTimeout(() => {
+      dispatch(setLoading(false));
+    }, 1000);
   }, []);
 
+  if (loading) {
+    return (
+      <>
+        <Loading />
+      </>
+    );
+  }
   return (
     <>
       <div className="landing-page">
